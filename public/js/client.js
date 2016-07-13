@@ -22,14 +22,17 @@ app.controller('MainController', function($scope, $http){
     console.log('Failure', response);
   };
 
+//function to show all
   function showAll(){
     $http(configObject).then(handleSuccess, handleFailure);
   };
 
+//function to show random athletes
   function showRand(){
     $http(randObject).then(handleSuccess, handleFailure);
   };
 
+//this grabs the random athlete
   $scope.randomAthletes = function(){
     var randSport = '';
     $http.get('/olympics/randomAthletes').then(function(request, response){
@@ -45,7 +48,7 @@ app.controller('MainController', function($scope, $http){
   showAll();
 });
 
-
+//this is the router to the specific location for the /sport calls
 angular.module('olympicApp').config(function($routeProvider, $locationProvider){
 $routeProvider
 .when('/archery', {
@@ -75,6 +78,8 @@ angular.module('olympicApp').controller('ArcheryController', function($scope, $h
     $scope.athlete = response.data;
   });
 });
+
+//the following are the controller calls to the /olympic/sports
 
 angular.module('olympicApp').controller('BadmintonController', function($scope, $http){
   $http.get('/olympics/badminton').then(function(response){
