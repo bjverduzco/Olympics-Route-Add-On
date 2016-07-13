@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="olympicApp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <title>Olympics Angular-Express</title>
+    <script src="vendor/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+    <script src="js/client.js"></script>
+    <base href="/" />
+  </head>
+  <body ng-controller="MainController">
+    <div class="button-container">
+      <button id="button" ng-click="randomAthletes()">Generate Random Athletes</button>
+      <h1 ng-show="showError">EVERYTHIN IS DON GON BAD!!!!</h1>
+      <br />
+      <a href="/archery"><button id="button-small">Archery</button></a>
+      <a href="/badminton"><button id="button-small">Badminton</button></a>
+      <a href="/canoeKayak"><button id="button-small">Canoe/Kayak</button></a>
+      <a href="/judo"><button id="button-small">Judo</button></a>
+      <a href="/tableTennis"><button id="button-small">Table Tennis</button></a>
+    </div>
+    <div ng-view class="small-container">
+
+    </div>
+    <div class="container">
+      <ul>
+        <li ng-repeat="athlete in athletes track by $index">
+          <h2>{{athlete.sport}}</h2>
+          Name: {{athlete.name}}<br />Hometown: {{athlete.origin}}<br />
+        </li>
+      </ul>
+    </div>
+
+  </body>
+</html>
