@@ -6,7 +6,15 @@
     <title>Olympics Angular-Express</title>
     <script src="vendor/angular.min.js"></script>
     <script src="vendor/angular-route/angular-route.min.js"></script>
-    <script src="js/client.js"></script>
+    <script src="js/routeApp.module.js"></script>
+    <script src="js/routeApp.config.js"></script>
+    <script src="js/MainController.js"></script>
+    <script src="js/ArcheryController.js"></script>
+    <script src="js/BadmintonController.js"></script>
+    <script src="js/CanoeKayakController.js"></script>
+    <script src="js/JudoController.js"></script>
+    <script src="js/TableTennisController.js"></script>
+    <script src="js/DataService.js"></script>
     <base href="/" />
   </head>
   <body ng-controller="MainController">
@@ -25,9 +33,9 @@
     </div>
     <div class="container">
       <ul>
-        <li ng-repeat="athlete in athletes track by $index">
-          <h2>{{athlete.sport}}</h2>
-          Name: {{athlete.name}}<br />Hometown: {{athlete.origin}}<br />
+        <li ng-repeat="athlete in data.athletes track by $index">
+          <h2>{{data.athletes[$index].sport}}</h2>
+          Name: {{data.athletes[$index].name}}<br />Hometown: {{data.athletes[$index].origin}}<br />
         </li>
       </ul>
     </div>
