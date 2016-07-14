@@ -66,8 +66,8 @@ body{
 	border-radius: 5px;
   border-color: rgba(0, 82, 165, 1);
   background: rgba(0, 82, 165, 1);
-	float: center;
-	display: inline-block;
+	width: 30%;
+	margin: 0 auto;
 	text-align: center;
 }
 
