@@ -15,5 +15,17 @@ app.controller('MainController', function($scope, $http, DataService){
     })
   };
 
+  //this grabs all the athletes
+    $scope.all = function(){
+      $http.get('/olympics/all').then(function(request, response){
+        console.log(response);
+        DataService.showAll();
+        $scope.showError = false;
+      }, function(response){
+        $scope.showError = true;
+        console.log(response);
+      })
+    };
+
   DataService.showAll();
 });
